@@ -1,4 +1,4 @@
-
+# This is theeee vpc and networking script
 provider "aws" {
   region = "eu-north-1"
 
