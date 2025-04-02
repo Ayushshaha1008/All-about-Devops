@@ -1,4 +1,3 @@
-# This is the script for creating the vpc , subnet , route tabel , gateway and etc
 
 provider "aws" {
   region = "eu-north-1"
