@@ -1,4 +1,4 @@
-
+# This is the script with the help of which you can create Networking , autobalancer and a auto scaling which placed on the top of the ALB
 
 provider "aws" {
   region = "eu-north-1"
