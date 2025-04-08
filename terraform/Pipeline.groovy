@@ -1,3 +1,4 @@
+// This is the script for the pipeline which consist of 4 stages pull , build , test , deploy
 node{
     stage ('Pull'){
     echo 'This is the pull stage'
