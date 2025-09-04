@@ -1,0 +1,5 @@
+## This file creates a namespace called nginx in Kubernetes.
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: nginx
