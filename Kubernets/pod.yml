@@ -1,0 +1,11 @@
+## This is a basic Pod configuration file for deploying an Nginx container in Kubernetes.
+kind: Pod 
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      ports:
+        - containerPort: 80
