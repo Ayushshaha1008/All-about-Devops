@@ -1,0 +1,17 @@
+# this is the script for creating a job in kubernetes
+kind: Job
+apiVersion: batch/v1
+metadata:
+  name: bakup-job
+  namespace: nginx
+spec:
+  template:
+    metadata:
+      name: bakup-pod
+    spec:
+      containers:
+        - name: bakup
+          image: busybox:latest
+          command: ["sh", "-c", "echo Hello, Kubernetes! && sleep 30"]
+      restartPolicy: Never
+  
