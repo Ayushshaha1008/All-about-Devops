@@ -1,0 +1,37 @@
+kind : CronJob
+apiVersion: batch/v1
+metadata:
+  name: bakup-cronjob
+  namespace: nginx
+spec:
+  schedule: "*/1 * * * *" # runs every minute
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name: bakup-pod
+        spec:
+          containers:
+            - name: bakup
+              image: busybox:latest
+              command:
+               - sh
+               - c
+               - echo "Backup started"
+               - mkdir -p /backup
+               - mkdir -p /data
+               - cp -r /data/* /backup/
+                - echo "Backup completed"
+              volumeMounts:
+                - name: data-volume
+                  mountPath: /data
+                - name: backup-volume
+                  mountPath: /backup
+          restartPolicy: OnFailure
+          volumes:
+            - name: data-volume
+              persistentVolumeClaim:
+                claimName: data-pvc
+            - name: backup-volume
+              persistentVolumeClaim:
+                claimName: backup-pvc
