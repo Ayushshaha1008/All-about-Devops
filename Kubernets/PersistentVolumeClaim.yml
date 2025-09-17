@@ -1,0 +1,12 @@
+#this is used to claim the persistent volume that was created with the PersistentVolume.yml file
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: ""   # Must match PV or be empty for static binding
